@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
     SystemUIResTopaz \
     WifiResTopaz
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
