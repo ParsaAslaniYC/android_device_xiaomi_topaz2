@@ -10,6 +10,9 @@ $(call inherit-product, device/xiaomi/sm6225-common/common.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/topaz/topaz-vendor.mk)
 
+# Call the MiuiCamera setup
+$(call inherit-product-if-exists, device/xiaomi/miuicamera-topaz/device.mk)
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -25,7 +28,6 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Overlays
 PRODUCT_PACKAGES += \
-    ApertureResTopaz \
     FrameworksResTopaz \
     NotchBarKiller \
     SettingsProviderResTopaz \
@@ -37,13 +39,9 @@ PRODUCT_PACKAGES += \
     SystemUIResTopaz \
     WifiResTopaz
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service \
     android.hardware.power@1.2.vendor
 
 PRODUCT_COPY_FILES += \
